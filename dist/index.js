@@ -205,11 +205,11 @@ var ScratchCard = function (_Component) {
 }(_react.Component);
 
 ScratchCard.propTypes = {
-  image: _react2.default.PropTypes.string.isRequired,
-  width: _react2.default.PropTypes.number.isRequired,
-  height: _react2.default.PropTypes.number.isRequired,
-  finishPercent: _react2.default.PropTypes.number.isRequired,
-  onComplete: _react2.default.PropTypes.func
+  image: _propTypes2.default.string.isRequired,
+  width: _propTypes2.default.number.isRequired,
+  height: _propTypes2.default.number.isRequired,
+  finishPercent: _propTypes2.default.number.isRequired,
+  onComplete: _propTypes2.default.func
 };
 
 var _default = ScratchCard;
