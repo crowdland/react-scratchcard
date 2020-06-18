@@ -135,7 +135,7 @@ var ScratchCard = function (_Component) {
         y = this.lastPoint.y + Math.cos(angle) * i;
         this.ctx.globalCompositeOperation = 'destination-out';
         this.ctx.beginPath();
-        this.ctx.arc(x, y, 25, 0, 2 * Math.PI, false);
+        this.ctx.arc(x, y, this.props.strokeSize / 2, 0, 2 * Math.PI, false);
         this.ctx.fill();
       }
 
@@ -209,6 +209,7 @@ ScratchCard.propTypes = {
   width: _propTypes2.default.number.isRequired,
   height: _propTypes2.default.number.isRequired,
   finishPercent: _propTypes2.default.number.isRequired,
+  strokeSize: _propTypes2.default.number.isRequired,
   onComplete: _propTypes2.default.func
 };
 
