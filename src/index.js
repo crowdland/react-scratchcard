@@ -94,7 +94,7 @@ class ScratchCard extends Component {
       y = this.lastPoint.y + (Math.cos(angle) * i);
       this.ctx.globalCompositeOperation = 'destination-out';
       this.ctx.beginPath();
-      this.ctx.arc(x, y, 12.5, 0, 2 * Math.PI, false);
+      this.ctx.arc(x, y, this.props.strokeSize / 2, 0, 2 * Math.PI, false);
       this.ctx.fill();
     }
 
@@ -160,6 +160,7 @@ ScratchCard.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   finishPercent: PropTypes.number.isRequired,
+  strokeSize: PropTypes.number.isRequired,
   onComplete: PropTypes.func
 }
 

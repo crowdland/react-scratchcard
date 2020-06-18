@@ -8,6 +8,7 @@ const settings = {
   width: 640,
   height: 480,
   image: cardImage,
+  strokeSize: 15,
   finishPercent: 50,
   onComplete: () => console.log('The card is now clear!')
 };
