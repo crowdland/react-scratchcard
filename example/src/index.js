@@ -5,8 +5,8 @@ import ScratchCard from '../../src';
 import cardImage from './card.jpg';
 
 const settings = {
-  width: 640,
-  height: 480,
+  width: 300,
+  height: 300,
   image: cardImage,
   strokeSize: 15,
   finishPercent: 50,

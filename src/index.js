@@ -72,11 +72,13 @@ class ScratchCard extends Component {
   }
 
   handleMouseDown(e) {
+    e.preventDefault();
     this.isDrawing = true;
     this.lastPoint = this.getMouse(e, this.canvas);
   }
 
   handleMouseMove(e) {
+    e.preventDefault();
     if (!this.isDrawing) {
       return;
     }
@@ -104,6 +106,7 @@ class ScratchCard extends Component {
   }
 
   handleMouseUp() {
+    e.preventDefault();
     this.isDrawing = false;
   }
 
@@ -135,12 +138,13 @@ class ScratchCard extends Component {
       style: canvasStyle,
       width: this.props.width,
       height: this.props.height,
-      onMouseDown: this.handleMouseDown.bind(this),
-      onTouchStart: this.handleMouseDown.bind(this),
-      onMouseMove: this.handleMouseMove.bind(this),
-      onTouchMove: this.handleMouseMove.bind(this),
-      onMouseUp: this.handleMouseUp.bind(this),
-      onTouchEnd: this.handleMouseUp.bind(this)
+      onMouseDown: e => this.handleMouseDown(e),
+      onTouchStart: e => this.handleMouseDown(e),
+      onMouseMove: e => this.handleMouseMove(e),
+      onTouchMove: e => this.handleMouseMove(e),
+      onMouseUp: e => this.handleMouseUp(e),
+      onTouchEnd: e => this.handleMouseUp(e),
+      onTouchCancel: e => this.handleMouseUp(e),
     }
 
     return (

@@ -111,12 +111,14 @@ var ScratchCard = function (_Component) {
   }, {
     key: 'handleMouseDown',
     value: function handleMouseDown(e) {
+      e.preventDefault();
       this.isDrawing = true;
       this.lastPoint = this.getMouse(e, this.canvas);
     }
   }, {
     key: 'handleMouseMove',
     value: function handleMouseMove(e) {
+      e.preventDefault();
       if (!this.isDrawing) {
         return;
       }
@@ -145,6 +147,7 @@ var ScratchCard = function (_Component) {
   }, {
     key: 'handleMouseUp',
     value: function handleMouseUp() {
+      e.preventDefault();
       this.isDrawing = false;
     }
   }, {
@@ -180,12 +183,27 @@ var ScratchCard = function (_Component) {
         style: canvasStyle,
         width: this.props.width,
         height: this.props.height,
-        onMouseDown: this.handleMouseDown.bind(this),
-        onTouchStart: this.handleMouseDown.bind(this),
-        onMouseMove: this.handleMouseMove.bind(this),
-        onTouchMove: this.handleMouseMove.bind(this),
-        onMouseUp: this.handleMouseUp.bind(this),
-        onTouchEnd: this.handleMouseUp.bind(this)
+        onMouseDown: function onMouseDown(e) {
+          return _this3.handleMouseDown(e);
+        },
+        onTouchStart: function onTouchStart(e) {
+          return _this3.handleMouseDown(e);
+        },
+        onMouseMove: function onMouseMove(e) {
+          return _this3.handleMouseMove(e);
+        },
+        onTouchMove: function onTouchMove(e) {
+          return _this3.handleMouseMove(e);
+        },
+        onMouseUp: function onMouseUp(e) {
+          return _this3.handleMouseUp(e);
+        },
+        onTouchEnd: function onTouchEnd(e) {
+          return _this3.handleMouseUp(e);
+        },
+        onTouchCancel: function onTouchCancel(e) {
+          return _this3.handleMouseUp(e);
+        }
       };
 
       return _react2.default.createElement(
